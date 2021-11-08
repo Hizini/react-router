@@ -1,0 +1,28 @@
+.displayList {
+    width: 800px;
+    height: 500px;
+    border: 2px solid black;
+    background-color: rgb(244, 245, 201);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.totalData {
+    border: 2px solid rgb(9, 185, 9);
+    border-radius: 30px;
+    margin: 10px;
+    padding: 5px;
+    background-color: rgb(223, 245, 197);
+}
+
+.date {
+    font-size: 10px;
+    color: grey;
+    margin: 10px;
+}
+
+.comment {
+    margin: 8px;
+}
+.nickname {
+    margin: 8px;
+}

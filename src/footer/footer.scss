@@ -1,0 +1,18 @@
+.footer {
+    font-family: 'Noto Sans CJK KR', sans-serif;
+    letter-spacing: -1px;
+
+        .logo {
+            display: inline-block;
+            vertical-align: top;
+            margin: 50px;
+        }
+
+        .text {
+            display: inline-block;
+            color: grey;
+            margin: 30px;
+            padding: 30px;
+            font-size: 18px;
+        }
+}

@@ -1,0 +1,15 @@
+.home-container { 
+    height: 550px;
+
+    .comment-container {
+        cursor: pointer;
+    
+        .commentBtn {
+            border: 1px solid black;
+            width: 150px;
+            background-color: rgb(79, 216, 79);
+            text-align: center;
+            margin: 30px;
+        }
+    }
+}

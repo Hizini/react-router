@@ -1,0 +1,19 @@
+.display {
+  width: 400px;
+  height: 80px;
+  background-color: greenyellow;
+  display: flex;
+}
+
+.displayResult {
+    width: 365px;
+    height: 60px;
+    font-size: 60px;
+    font-weight: bold;
+    padding-right: 8px;
+    text-align: right;
+    padding-right: 8px;
+    background-color: rgb(233, 243, 217);
+    border: 3px solid navy;
+    margin: auto;
+}

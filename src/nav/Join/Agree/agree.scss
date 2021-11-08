@@ -1,0 +1,61 @@
+.agree-container {
+    width: 640px;
+    margin: 15px auto;
+    border: 1px solid black;
+    font-size: 18px;
+    font-weight: bold;
+
+    input {
+        cursor: pointer;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+        .allCheck {
+            margin: 20px;
+        }
+
+        .personalInfo {
+
+            .personalCheck1 {
+                margin: 15px 30px;
+                display: inline-block;
+
+                .conditionBtn {
+                    display: inline-block;
+                }
+            }
+        
+            .personalCheck2 {
+                margin: 15px 30px;
+                display: inline-block;
+
+                .personalBtn1 {
+                    display: inline-block;
+                }
+            }
+        
+            .personalCheck3 {
+                margin: 15px 30px;
+                display: inline-block;
+
+                .personalBtn2 {
+                    display: inline-block;
+                }
+            }
+
+            .marketing-container {
+                .marketingCheck {
+                    font-size: 18px;
+                    font-weight: bold;
+                    margin: 15px 30px;
+                }
+            }
+        
+        
+    }
+
+}
+

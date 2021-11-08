@@ -1,0 +1,28 @@
+.navbar {
+    font-family: 'Noto Sans CJK KR', sans-serif;
+    letter-spacing: -1px;
+    text-align: center;
+    
+    .nav-home {
+        display: inline-flex;
+        float: left;
+        margin: 20px;
+
+        .vmlogo {
+            width: 160px;
+            height: auto;
+        }
+    }
+
+    .nav-item {
+        display: inline-flex;
+        margin: 30px;
+        font-size: 20px;
+        font-weight: bold;
+        
+    }
+        .item {
+            text-decoration: none;
+            color: black;
+        }
+}
