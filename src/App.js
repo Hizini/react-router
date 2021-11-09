@@ -13,9 +13,9 @@ class App extends Component {
                 <Nav/>
                 <hr/>
                 <Route exact path='/' component={Home}/>
-                <Route exact path='/Calculator' component={Calculator}/>
-                <Route exact path='/Comment' component={Comment}/>
-                <Route exact path='/Join' component={Join}/>
+                <Route path='/Calculator' component={Calculator}/>
+                <Route path='/Comment' component={Comment}/>
+                <Route path='/Join' component={Join}/>
                 <hr/>
                 <Footer/>
             </div>
