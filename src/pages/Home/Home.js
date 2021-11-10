@@ -1,17 +1,19 @@
 
 import React, { Component } from 'react'
-import './Home.scss';
+import './Home.scss'
+import { withRouter } from 'react-router-dom';
 
 class Home extends Component {
-  state = {
-    
-  }
+
+  // Event로 이동하면서 state 값 전달
   // handleClickBtn = () => {
   //   this.props.history.push('/Event', {
   //     hi: 'hello'
   //   })
   // }
 
+
+  // Comment로 이동
   handleClickComment = () => {
     this.props.history.push('/Comment')
   }
