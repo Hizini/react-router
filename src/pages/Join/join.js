@@ -45,7 +45,7 @@ class Join extends Component {
     handleOnChangeMarketingCheckBox = e => {
         this.setState({
             [e.target.value]: !this.state[e.target.value]
-        }, () => this.setState({ MarketingEveryChecked: this.checkMarketingBooleanValue(), EveryChecked: this.checkAllBooleanValue()}))
+        }, () => this.setState({ MarketingEveryChecked: this.checkMarketingBooleanValue(), EveryChecked: this.checkAllBooleanValue() }))
     }
 
     handleEveryCheck = (e) => {
@@ -90,7 +90,7 @@ class Join extends Component {
                 EmailChecked: false,
                 SMSChecked: false,
                 AppChecked: false,
-                
+
             })
         }
         else {
@@ -105,11 +105,11 @@ class Join extends Component {
     checkAllBooleanValue = () => {
         const { conditionChecked, personalChecked, personalChecked2, EmailChecked, SMSChecked, AppChecked } = this.state
 
-        return conditionChecked && personalChecked && personalChecked2 && EmailChecked && SMSChecked && AppChecked 
+        return conditionChecked && personalChecked && personalChecked2 && EmailChecked && SMSChecked && AppChecked
     }
 
     checkMarketingBooleanValue = () => {
-        const { EmailChecked, SMSChecked, AppChecked } = this.state 
+        const { EmailChecked, SMSChecked, AppChecked } = this.state
 
         return EmailChecked && SMSChecked && AppChecked
     }
@@ -186,8 +186,49 @@ class Join extends Component {
     }
 
     onClickFinishBtn = (e) => {
-        const {name,id,password,emailTail, emailHead, year, month, day, isGender, conditionChecked, personalChecked,personalChecked2,EmailChecked,SMSChecked,AppChecked} = this.state
-        alert(`
+        const { name, id, password, checkPassword, emailTail, emailHead, year, month, day, isGender, conditionChecked, personalChecked, personalChecked2, EmailChecked, SMSChecked, AppChecked, EveryChecked } = this.state
+        // if ((name || id || password || emailTail || emailHead || year || month || day === '') 
+        //     && (EveryChecked === false)) {
+        //     alert(`필수항목을 입력하세요.`)
+        // }
+        if (!name) {
+            alert('이름을 입력해주세요.')
+        }
+        else if (!id) {
+            alert('아이디를 입력해주세요.')
+        }
+        else if (!password) {
+            alert('비밀번호를 입력해주세요.')
+        }
+        else if (password !== checkPassword) {
+            alert('비밀번호가 일치하지 않습니다.')
+        }
+        else if (!emailHead || !emailTail) {
+            alert('이메일을 입력해주세요.')
+        }
+        else if (!year || !month || !day) {
+            alert('생년월일을 입력해주세요.')
+        }
+        else if (!conditionChecked) {
+            alert('이용약관을 체크해주세요')
+        }
+        else if (!personalChecked) {
+            alert('개인정보 수집 및 이용 안내를 체크해주세요')
+        }
+        else if (!personalChecked2) {
+            alert('개인정보 처리위탁을 체크해주세요')
+        }
+        else if (!EmailChecked) {
+            alert('이메일 수신동의에 체크해주세요')
+        }
+        else if (!SMSChecked) {
+            alert('SMS 수신동의에 체크해주세요')
+        }
+        else if (!AppChecked) {
+            alert('앱PUSH알림을 체크해주세요')
+        }
+        else {
+            alert(`
         이름 : ${name}
         아이디 : ${id}
         비밀번호 : ${password}
@@ -200,6 +241,25 @@ class Join extends Component {
         이메일 : ${EmailChecked}
         SMS : ${SMSChecked}
         앱PUSH알림 : ${AppChecked}`)
+        }
+
+        // To-Do
+        // endPoint : https://hizin-test-server.azurewebsites.net/api/auth/sign-up
+        // POST 요청을 보내기
+        /* 
+            const body = {
+                name,
+                id,
+                password,
+                birth: `${year}년...`,
+                isGender
+                .
+                .
+                .
+            }
+        */
+        // 1. then 핸들러 구성
+        // 2. catch 핸들러 구성 -> e.response
     }
 
     // setAllBooleanValue = value => {
@@ -214,16 +274,16 @@ class Join extends Component {
     }
 
     render() {
-        const {conditionChecked, personalChecked,personalChecked2,EmailChecked,SMSChecked,AppChecked,name,id,password,checkPassword, MarketingEveryChecked, EveryChecked,
-                emailTail, emailHead, selectEmail, year, month, day, man, woman, isGender, manBgColor, womanBgColor, manColor, womanColor} = this.state
+        const { conditionChecked, personalChecked, personalChecked2, EmailChecked, SMSChecked, AppChecked, name, id, password, checkPassword, MarketingEveryChecked, EveryChecked,
+            emailTail, emailHead, selectEmail, year, month, day, man, woman, isGender, manBgColor, womanBgColor, manColor, womanColor } = this.state
         return (
             <div className="join-container">
                 <Title />
-                <Information 
-                    name={name} 
-                    id={id} 
-                    password={password} 
-                    checkPassword={checkPassword} 
+                <Information
+                    name={name}
+                    id={id}
+                    password={password}
+                    checkPassword={checkPassword}
                     emailTail={emailTail}
                     emailHead={emailHead}
                     selectEmail={selectEmail}
@@ -249,23 +309,23 @@ class Join extends Component {
                     onInputDayHandler={this.onInputDayHandler}
                     handleClickGender={this.handleClickGender}
                 />
-                <Agree 
-                    conditionChecked={conditionChecked} 
-                    personalChecked={personalChecked} 
-                    personalChecked2={personalChecked2} 
-                    EmailChecked={EmailChecked} 
-                    SMSChecked={SMSChecked} 
-                    AppChecked={AppChecked} 
-                    EveryChecked= {EveryChecked} 
-                    MarketingEveryChecked= {MarketingEveryChecked} 
-                    handleOnChangeCheckBox={this.handleOnChangeCheckBox} 
+                <Agree
+                    conditionChecked={conditionChecked}
+                    personalChecked={personalChecked}
+                    personalChecked2={personalChecked2}
+                    EmailChecked={EmailChecked}
+                    SMSChecked={SMSChecked}
+                    AppChecked={AppChecked}
+                    EveryChecked={EveryChecked}
+                    MarketingEveryChecked={MarketingEveryChecked}
+                    handleOnChangeCheckBox={this.handleOnChangeCheckBox}
                     handleOnChangeMarketingCheckBox={this.handleOnChangeMarketingCheckBox}
                     handleEveryCheck={this.handleEveryCheck}
                     handleMarketingEveryCheck={this.handleMarketingEveryCheck}
                 />
                 <button className="top" onClick={this.handleTop}> TOP ⇧ </button>
                 <div className="finishDiv">
-                <button className="finish" onClick={this.onClickFinishBtn}>가입완료</button>
+                    <button className="finish" onClick={this.onClickFinishBtn}>가입완료</button>
                 </div>
             </div>
         )
