@@ -5,6 +5,7 @@ import './join.scss';
 import Title from './Title/title';
 import Information from './Information/information';
 import Agree from './Agree/agree';
+import axios from "axios";
 
 class Join extends Component {
 
@@ -241,7 +242,30 @@ class Join extends Component {
         이메일 : ${EmailChecked}
         SMS : ${SMSChecked}
         앱PUSH알림 : ${AppChecked}`)
+            this.props.history.push('/')
         }
+        const body = {
+            name,
+            id,
+            password,
+            email: `${emailHead}@${emailTail}`,
+            birth: `${year}년 ${month}월 ${day}일`,
+            gender: isGender,
+            conditionChecked,
+            personalChecked,
+            personalChecked2,
+            emailChecked: EmailChecked,
+            smsChecked: SMSChecked,
+            appChecked: AppChecked
+        }
+
+        axios.post('http://localhost:2008/api/auth/sign-up', body)
+            .then(response => { console.log(response) })
+            .catch(error => { console.log(error)
+                    alert('Unknown Error...')
+
+            })
+
 
         // To-Do
         // endPoint : https://hizin-test-server.azurewebsites.net/api/auth/sign-up
@@ -252,7 +276,8 @@ class Join extends Component {
                 id,
                 password,
                 birth: `${year}년...`,
-                isGender
+                gender: ,
+
                 .
                 .
                 .
