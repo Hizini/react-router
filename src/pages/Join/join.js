@@ -228,28 +228,28 @@ class Join extends Component {
         else if (!AppChecked) {
             alert('앱PUSH알림을 체크해주세요')
         }
-        else {
-            alert(`
-        이름 : ${name}
-        아이디 : ${id}
-        비밀번호 : ${password}
-        이메일 : ${emailHead} @ ${emailTail}
-        생년월일 : ${year}년 ${month}월 ${day}일
-        성별 : ${isGender}
-        이용약관 : ${conditionChecked}
-        개인정보 수집 및 이용 안내 : ${personalChecked}
-        개인정보 처리위탁 : ${personalChecked2}
-        이메일 : ${EmailChecked}
-        SMS : ${SMSChecked}
-        앱PUSH알림 : ${AppChecked}`)
+        // else {
+        //     alert(`
+        // 이름 : ${name}
+        // 아이디 : ${id}
+        // 비밀번호 : ${password}
+        // 이메일 : ${emailHead} @ ${emailTail}
+        // 생년월일 : ${year}년 ${month}월 ${day}일
+        // 성별 : ${isGender}
+        // 이용약관 : ${conditionChecked}
+        // 개인정보 수집 및 이용 안내 : ${personalChecked}
+        // 개인정보 처리위탁 : ${personalChecked2}
+        // 이메일 : ${EmailChecked}
+        // SMS : ${SMSChecked}
+        // 앱PUSH알림 : ${AppChecked}`)
             this.props.history.push('/')
-        }
+        // }
         const body = {
             name,
             id,
             password,
             email: `${emailHead}@${emailTail}`,
-            birth: `${year}년 ${month}월 ${day}일`,
+            birth: `${year}-${month}-${day}`,
             gender: isGender,
             conditionChecked,
             personalChecked,
@@ -261,30 +261,11 @@ class Join extends Component {
 
         axios.post('http://localhost:2008/api/auth/sign-up', body)
             .then(response => { console.log(response) })
-            .catch(error => { console.log(error)
-                    alert('Unknown Error...')
+            .catch(error => {
+                console.log(error)
+                alert('Unknown Error...')
 
             })
-
-
-        // To-Do
-        // endPoint : https://hizin-test-server.azurewebsites.net/api/auth/sign-up
-        // POST 요청을 보내기
-        /* 
-            const body = {
-                name,
-                id,
-                password,
-                birth: `${year}년...`,
-                gender: ,
-
-                .
-                .
-                .
-            }
-        */
-        // 1. then 핸들러 구성
-        // 2. catch 핸들러 구성 -> e.response
     }
 
     // setAllBooleanValue = value => {

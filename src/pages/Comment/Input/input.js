@@ -45,9 +45,8 @@ class Input extends Component {
 
 
 render() {
-    console.log(this.state.value, this.state.nickname)
-    console.log(this.state.checked)
-    console.log(i18n.t('Anonymous'))
+    // console.log(this.state.value, this.state.nickname, this.state.checked)
+    // console.log(i18n.t('Anonymous'))
     return (
         <>
             <div className="">
