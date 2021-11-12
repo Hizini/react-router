@@ -5,6 +5,7 @@ import Calculator from '../Calculator/Calculator'
 import Comment from '../Comment/comment'
 import Home from '../Home/Home'
 import Join from '../Join/join'
+import SignIn from '../SignIn/index'
 
 class RootPage extends Component {
     render() {
@@ -14,6 +15,7 @@ class RootPage extends Component {
                 <Route path='/Calculator' component={Calculator} />
                 <Route path='/Comment' component={Comment} />
                 <Route path='/Join' component={Join} />
+                <Route path='/SignIn' component={SignIn} />
             </>
         )
     }

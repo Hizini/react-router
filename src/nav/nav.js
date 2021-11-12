@@ -18,6 +18,9 @@ class Nav extends Component {
                 <div className="nav-item">
                     <Link className="item" to="/Join">회원가입</Link>
                 </div>
+                <div className="nav-item">
+                    <Link className="item" to="/SignIn">로그인</Link>
+                </div>
             </div>
         )
     }
