@@ -260,7 +260,10 @@ class Join extends Component {
         }
 
         axios.post('http://localhost:2008/api/auth/sign-up', body)
-            .then(response => { console.log(response) })
+            .then(response => { 
+                const name = response.data.name 
+                localStorage.setItem('name', name)
+             })
             .catch(error => {
                 console.log(error)
                 alert('Unknown Error...')

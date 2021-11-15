@@ -19,19 +19,29 @@ class Comment extends Component {
 
     componentDidMount() {
         this.getCommentData()
+        const token = localStorage.getItem('token')
+        if(!token) {
+          alert ('로그인이 필요한 서비스입니다.')
+          this.props.history.push('/SignIn')
+        }
+        else {this.props.history.push('/Comment')}
     }
 
     inputData = (commentValue, nickname, checked) => {
         const body = { nickname: checked ? '익명' : nickname, commentValue }
 
+      
         // let commentData = this.state.commentData
         // commentData.push({ commentValue, nickname, date, checked })
 
         // this.setState({
         //     commentData: commentData
         // })
-
-        axios.post('http://localhost:2008/api/comment', body)
+        
+        const token = localStorage.getItem('token')
+        const config = { headers: { Authorization: `Bearer ${token}` }} 
+        
+        axios.post('http://localhost:2008/api/comment', body, config)
             .then(this.getCommentData())
             .catch(error => {
                 console.log(error)
@@ -41,18 +51,18 @@ class Comment extends Component {
 
 
     getCommentData = () => {
+        const token = localStorage.getItem('token')
+        const config = { headers: { Authorization: `Bearer ${token}` }} 
 
-        axios.get('http://localhost:2008/api/comment')
+        axios.get('http://localhost:2008/api/comment', config)
             .then(response => {
-                // console.log(response)
+                console.log(response)
                 this.setState({
                     commentData: response.data.list
                 })
             })
             .catch(error => {
                 console.log(error)
-                alert('Unknown Error!')
-
             })
 
     }

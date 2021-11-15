@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react'
 import './Home.scss'
-import { withRouter } from 'react-router-dom';
 
 class Home extends Component {
 
