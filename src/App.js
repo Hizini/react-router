@@ -11,8 +11,6 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Nav/>
-                <hr/>
                 {/* <Route exact path='/' component={Home}/>
                 <Route path='/Calculator' component={Calculator}/>
                 <Route path='/Comment' component={Comment}/>

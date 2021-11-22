@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Calculator.scss';
 import Display from './Component/Display';
+import Nav from '../../nav/nav'
 
 // state 값 초기화
 class Calculator extends Component {
@@ -82,6 +83,9 @@ class Calculator extends Component {
 
     render() {
         return (
+            <>
+            <Nav/>
+            <hr/>
             <div className="container">
                 <div className='comment-container'>
                     <div className='commentBtn' onClick={this.handleClickComment}>
@@ -117,6 +121,7 @@ class Calculator extends Component {
                     </div>
                 </div>
             </div>
+            </>
         )
     }
 }

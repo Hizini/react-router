@@ -6,7 +6,6 @@ class Login extends Component {
 
     render() {
         const { onInputLogin, loginId, loginPassword } = this.props
-        console.log(loginId, loginPassword)
         return (
             <>
                 <div className="login-container">

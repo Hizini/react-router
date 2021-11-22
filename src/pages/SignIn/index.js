@@ -48,6 +48,7 @@ import React, { Component } from 'react'
 import './index.scss'
 import Login from './Login/login'
 import axios from "axios";
+import Nav from '../../nav/nav'
 
 class SignIn extends Component {
 
@@ -99,6 +100,9 @@ class SignIn extends Component {
     render() {
         const { loginId, loginPassword } = this.state
         return (
+            <>
+            <Nav/>
+            <hr/>
             <div className='signIn-container'>
                 <div className='title-container'>
                     <div className="title">로그인</div>
@@ -113,7 +117,7 @@ class SignIn extends Component {
                     <button className='joinBtn' onClick={this.onClickJoinBtn}>회원가입</button>
                 </div>
             </div>
-
+            </>
         )
     }
 }

@@ -13,15 +13,35 @@ class Input extends Component {
         }
     }
 
+    // commentName = ''
+    // componentDidMount() {
+    //     const { commentName } = this.props
+    //     this.setState({
+    //         nickname: commentName
+    //     })
+    // }
+
+    componentDidUpdate(prvProps, prvState) {
+        const { commentName } = this.props
+
+        if (prvProps.commentName !== commentName) {
+            this.setState({
+                nickname: commentName
+            })
+        }
+    }
+
     onInputValueHandler = (e) => {
         this.setState({
             value: e.target.value
         })
     }
+
     onInputNicknameHandler = (e) => {
         this.setState({
             nickname: e.target.value
         })
+
     }
 
     onButtonHandler = () => {
@@ -44,22 +64,23 @@ class Input extends Component {
     }
 
 
-render() {
-    // console.log(this.state.value, this.state.nickname, this.state.checked)
-    // console.log(i18n.t('Anonymous'))
-    return (
-        <>
-            <div className="">
-                <input className="comment" onChange={this.onInputValueHandler} type='text' value={this.state.value} placeholder={i18n.t('comment')}></input>
-                <input className="nickname" onChange={this.onInputNicknameHandler} type='text' value={this.state.nickname} placeholder={i18n.t('nickname')}></input>
-                <button className="input" onClick={this.onButtonHandler}>{i18n.t('Input')}</button>
-                <div>{i18n.t('Anonymous')}
-                    <input className="Anonymous" onChange={this.onCheckedHandler} type='checkbox' value={this.state.checked}></input>
+    render() {
+        // console.log(this.state.value, this.state.nickname, this.state.checked)
+        // console.log(i18n.t('Anonymous'))
+        const token = localStorage.getItem('token')
+        return (
+            <>
+                <div className="">
+                    <input className="comment" onChange={this.onInputValueHandler} type='text' value={this.state.value} placeholder={i18n.t('comment')}></input>
+                    <input className="nickname" onChange={!token && this.onInputNicknameHandler} type='text' value={this.state.nickname} placeholder={i18n.t('nickname')}></input>
+                    <button className="input" onClick={this.onButtonHandler}>{i18n.t('Input')}</button>
+                    <div>{i18n.t('Anonymous')}
+                        <input className="Anonymous" onChange={this.onCheckedHandler} type='checkbox' value={this.state.checked}></input>
+                    </div>
                 </div>
-            </div>
-        </>
-    )
-}
+            </>
+        )
+    }
 }
 
 export default Input

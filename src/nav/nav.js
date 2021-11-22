@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import './nav.scss';
 
 
 class Nav extends Component {
+
     render() {
+        const token = localStorage.getItem('token')
+
         return (
             <div className='navbar'>
                 <div className="nav-home">
@@ -15,12 +18,18 @@ class Nav extends Component {
                 <div className="nav-item">
                     <Link className="item" to="/Calculator">계산기</Link>
                 </div>
-                <div className="nav-item">
-                    <Link className="item" to="/Join">회원가입</Link>
-                </div>
-                <div className="nav-item">
-                    <Link className="item" to="/SignIn">로그인</Link>
-                </div>
+                {token
+                    ? ''
+                    : <>
+                        <div className="nav-item">
+                            <NavLink className="item" to="/Join" >회원가입</NavLink>
+                        </div>
+                        <div className="nav-item">
+                            <NavLink className="item" to="/SignIn" >로그인</NavLink>
+                        </div>
+                    </>
+                }
+
             </div>
         )
     }

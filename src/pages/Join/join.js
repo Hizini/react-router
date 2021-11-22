@@ -6,6 +6,7 @@ import Title from './Title/title';
 import Information from './Information/information';
 import Agree from './Agree/agree';
 import axios from "axios";
+import Nav from '../../nav/nav'
 
 class Join extends Component {
 
@@ -286,6 +287,9 @@ class Join extends Component {
         const { conditionChecked, personalChecked, personalChecked2, EmailChecked, SMSChecked, AppChecked, name, id, password, checkPassword, MarketingEveryChecked, EveryChecked,
             emailTail, emailHead, selectEmail, year, month, day, man, woman, isGender, manBgColor, womanBgColor, manColor, womanColor } = this.state
         return (
+            <>
+            <Nav/>
+            <hr/>
             <div className="join-container">
                 <Title />
                 <Information
@@ -337,6 +341,7 @@ class Join extends Component {
                     <button className="finish" onClick={this.onClickFinishBtn}>가입완료</button>
                 </div>
             </div>
+            </>
         )
     }
 }

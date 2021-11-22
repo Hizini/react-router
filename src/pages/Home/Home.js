@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
 import './Home.scss'
+import Nav from '../../nav/nav'
 
 class Home extends Component {
 
@@ -20,6 +21,9 @@ class Home extends Component {
 
   render() {
     return (
+      <>
+      <Nav/>
+      <hr/>
       <div className='home-container'>
         <div className='comment-container'>
           <div className='commentBtn' onClick={this.handleClickComment}>
@@ -27,6 +31,7 @@ class Home extends Component {
           </div>
         </div>
       </div>
+      </>
     )
   }
 }
